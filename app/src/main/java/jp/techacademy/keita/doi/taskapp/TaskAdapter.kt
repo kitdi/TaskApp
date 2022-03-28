@@ -60,7 +60,7 @@ class TaskAdapter(context: Context) : BaseAdapter(), Filterable {
                     val prefix = constraint.toString().lowercase()
                     filteredArrList = mutableListOf<Task>()
                     mOriginTaskList.forEach {
-                        if (it.category.contains(prefix)) {
+                        if (it.category.lowercase().contains(prefix)) {
                             filteredArrList.add(it)
                         }
                     }
