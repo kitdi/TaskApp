@@ -8,10 +8,21 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
+    <SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="キーワード検索"
+        android:layout_margin="2dp"
+        android:iconifiedByDefault="false"
+        android:background="@color/white"
+        android:layout_gravity="top"/>
+
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
