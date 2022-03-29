@@ -122,14 +122,16 @@ class MainActivity : AppCompatActivity() {
         // 上記の結果を、TaskListとしてセットする
         mTaskAdapter.mOriginTaskList = mRealm.copyFromRealm(taskRealmResults)
 
-        // Search Viewに入力済みのフィルターを適用する
-        mTaskAdapter.filter.filter(search_view.query.toString())
-
         // TaskのListView用のアダプタに渡す
         listView1.adapter = mTaskAdapter
 
+        // Search Viewに入力済みのフィルターを適用する
+        val queryString = search_view.query.toString()
+        mTaskAdapter.filter.filter(queryString)
+
         // 表示を更新するために、アダプターにデータが変更されたことを知らせる
-        mTaskAdapter.notifyDataSetChanged()
+        // フィルター適用時にFilter#publishResults()が呼ばれるため不要
+        // mTaskAdapter.notifyDataSetChanged()
     }
 
     override fun onDestroy() {
